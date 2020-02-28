@@ -24,6 +24,12 @@ const BackLink = styled(Link)`
   font-size: ${themeGet('fontSizes.Paragraph')}px;
 `;
 
+const placeholders = {
+  name: 'Agora Collective',
+  description: 'Making the world a better place',
+  slug: 'agora',
+};
+
 class CreateCollectiveForm extends React.Component {
   static propTypes = {
     error: PropTypes.string,
@@ -184,7 +190,7 @@ class CreateCollectiveForm extends React.Component {
                       required
                       my={4}
                     >
-                      {inputProps => <Field as={StyledInput} {...inputProps} placeholder="Agora Collective" />}
+                      {inputProps => <Field as={StyledInput} {...inputProps} placeholder={placeholders.name} />}
                     </StyledInputField>
                     <StyledInputField
                       name="slug"
@@ -196,7 +202,12 @@ class CreateCollectiveForm extends React.Component {
                       my={4}
                     >
                       {inputProps => (
-                        <Field as={StyledInputGroup} {...inputProps} prepend="opencollective.com" placeholder="agora" />
+                        <Field
+                          as={StyledInputGroup}
+                          {...inputProps}
+                          prepend="opencollective.com"
+                          placeholder={placeholders.slug}
+                        />
                       )}
                     </StyledInputField>
                     <StyledInputField
@@ -208,9 +219,7 @@ class CreateCollectiveForm extends React.Component {
                       required
                       my={4}
                     >
-                      {inputProps => (
-                        <Field as={StyledInput} {...inputProps} placeholder="Making the world a better place" />
-                      )}
+                      {inputProps => <Field as={StyledInput} {...inputProps} placeholder={placeholders.description} />}
                     </StyledInputField>
 
                     <Box mx={1} my={4}>
