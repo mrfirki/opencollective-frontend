@@ -96,11 +96,11 @@ class CollectiveCategoryPicker extends React.Component {
                     }}
                   >
                     <StyledButton
-                      buttonSize="small"
+                      fontSize="13px"
                       height="35px"
                       buttonStyle="primary"
                       mt={[2, 3]}
-                      mb={2}
+                      mb={3}
                       px={3}
                       onClick={() => {
                         this.handleChange('category', 'opensource');
@@ -135,11 +135,11 @@ class CollectiveCategoryPicker extends React.Component {
                     }}
                   >
                     <StyledButton
-                      buttonSize="small"
+                      fontSize="13px"
                       height="35px"
                       buttonStyle="primary"
                       mt={[2, 3]}
-                      mb={2}
+                      mb={3}
                       px={3}
                       onClick={() => {
                         this.handleChange('category', 'community');
@@ -173,11 +173,11 @@ class CollectiveCategoryPicker extends React.Component {
                     }}
                   >
                     <StyledButton
-                      buttonSize="small"
+                      fontSize="13px"
                       height="35px"
                       buttonStyle="primary"
                       mt={[2, 3]}
-                      mb={2}
+                      mb={3}
                       px={3}
                       onClick={() => {
                         this.handleChange('category', 'climate');
