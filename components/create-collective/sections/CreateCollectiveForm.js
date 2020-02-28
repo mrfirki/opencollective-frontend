@@ -34,6 +34,7 @@ class CreateCollectiveForm extends React.Component {
     onSubmit: PropTypes.func,
     intl: PropTypes.object.isRequired,
     onChange: PropTypes.func,
+    github: PropTypes.object,
   };
 
   constructor(props) {
@@ -84,12 +85,10 @@ class CreateCollectiveForm extends React.Component {
   render() {
     const { intl, error, query, host, loading, github } = this.props;
 
-    console.log(github);
-
     const initialValues = {
-      name: '',
+      name: github ? `${github.repo}`.replace(/[-_]/g, ' ') : '',
       description: '',
-      slug: '',
+      slug: github ? `${github.repo}` : '',
     };
 
     const validate = values => {

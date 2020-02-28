@@ -97,6 +97,7 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
                         repoInfo: {
                           type,
                           handle: `${value.owner.login}/${value.name}`,
+                          repo: `${value.name}`,
                         },
                       }));
                     } else {
@@ -106,6 +107,7 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
                         repoInfo: {
                           type,
                           handle: `${value.owner.login}`,
+                          repo: `${value.name}`,
                         },
                       }));
                     }
