@@ -140,7 +140,7 @@ class CreateCollectiveForm extends React.Component {
             </H1>
           </Box>
           <Box textAlign="center" minHeight={['24px']}>
-            <P fontSize="Paragraph" color="black.600" mb={2}>
+            <P fontSize="LeadParagraph" color="black.600" mb={2}>
               {intl.formatMessage(this.messages.introduceSubtitle)}
             </P>
           </Box>
@@ -220,6 +220,7 @@ class CreateCollectiveForm extends React.Component {
                             }}
                           />
                         }
+                        size={['Caption', 'Paragraph']}
                         required
                         checked={this.state.tosChecked}
                         onChange={({ checked }) => {
@@ -243,6 +244,7 @@ class CreateCollectiveForm extends React.Component {
                               }}
                             />
                           }
+                          size={['Caption', 'Paragraph']}
                           required
                           checked={this.state.hostTosChecked}
                           onChange={({ checked }) => {
@@ -255,7 +257,7 @@ class CreateCollectiveForm extends React.Component {
 
                     <Flex justifyContent={['center', 'left']} mb={4}>
                       <StyledButton
-                        buttonSize="small"
+                        fontSize="13px"
                         height="36px"
                         width="148px"
                         buttonStyle="primary"
