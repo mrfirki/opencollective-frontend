@@ -230,7 +230,7 @@ class ConnectGithub extends React.Component {
                   ml={4}
                   display={['block', null, 'block']}
                   width={1 / 5}
-                  minWidth={[200, 335]}
+                  maxWidth={[200, null, 335]}
                 />
               </Flex>
             )}

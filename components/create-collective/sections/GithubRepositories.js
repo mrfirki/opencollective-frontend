@@ -45,7 +45,7 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
   const showSearch = true; // repositories.length >= 5;
   return (
     <Fragment>
-      <StyledCard maxWidth={[300, 500]} minWidth={[200, 464]}>
+      <StyledCard maxWidth={[300, 448, 500]}>
         {showSearch && (
           <Container
             display="flex"
