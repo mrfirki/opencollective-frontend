@@ -18,6 +18,7 @@ import StyledButton from '../../StyledButton';
 import MessageBox from '../../MessageBox';
 import Link from '../../Link';
 import ExternalLink from '../../ExternalLink';
+import CreateCollectiveCover from '../../CreateCollectiveCover';
 
 const BackLink = styled(Link)`
   color: ${themeGet('colors.black.600')};
@@ -137,6 +138,7 @@ class CreateCollectiveForm extends React.Component {
 
     return (
       <Flex flexDirection="column" m={[3, 0]}>
+        {host && <CreateCollectiveCover host={host} />}
         <Flex flexDirection="column" my={[2, 4]}>
           <Box textAlign="left" minHeight={['32px']} marginLeft={['none', '224px']}>
             {query.verb === 'apply' && (
