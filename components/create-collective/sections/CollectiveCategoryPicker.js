@@ -9,8 +9,9 @@ import { H1 } from '../../Text';
 import StyledButton from '../../StyledButton';
 import Container from '../../Container';
 import Link from '../../Link';
+import ExternalLink from '../../ExternalLink';
 
-const ExamplesLink = styled.a`
+const ExamplesLink = styled(ExternalLink)`
   color: ${themeGet('colors.blue.500')};
   font-size: ${themeGet('fontSizes.Caption')}px;
 
@@ -108,7 +109,9 @@ class CollectiveCategoryPicker extends React.Component {
                       {intl.formatMessage(this.messages.opensource)}
                     </StyledButton>
                   </Link>
-                  <ExamplesLink href="#">{intl.formatMessage(this.messages.examples)}</ExamplesLink>
+                  <ExamplesLink href="/discover?show=opensource" openInNewTab>
+                    {intl.formatMessage(this.messages.examples)}
+                  </ExamplesLink>
                 </Flex>
               </Container>
               <Container
@@ -145,7 +148,9 @@ class CollectiveCategoryPicker extends React.Component {
                       {intl.formatMessage(this.messages.community)}
                     </StyledButton>
                   </Link>
-                  <ExamplesLink href="#">{intl.formatMessage(this.messages.examples)}</ExamplesLink>
+                  <ExamplesLink href="/discover?show=community" openInNewTab>
+                    {intl.formatMessage(this.messages.examples)}
+                  </ExamplesLink>
                 </Flex>
               </Container>
               <Container
@@ -181,7 +186,9 @@ class CollectiveCategoryPicker extends React.Component {
                       {intl.formatMessage(this.messages.climate)}
                     </StyledButton>
                   </Link>
-                  <ExamplesLink href="#">{intl.formatMessage(this.messages.examples)}</ExamplesLink>
+                  <ExamplesLink href="/discover?show=climate" openInNewTab>
+                    {intl.formatMessage(this.messages.examples)}
+                  </ExamplesLink>
                 </Flex>
               </Container>
             </Flex>
