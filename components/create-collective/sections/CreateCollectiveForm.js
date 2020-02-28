@@ -82,7 +82,7 @@ class CreateCollectiveForm extends React.Component {
   }
 
   render() {
-    const { intl, error, query, host } = this.props;
+    const { intl, error, query, host, loading } = this.props;
 
     const initialValues = {
       name: '',
@@ -264,6 +264,7 @@ class CreateCollectiveForm extends React.Component {
                         width="148px"
                         buttonStyle="primary"
                         type="submit"
+                        loading={loading}
                         onSubmit={handleSubmit}
                       >
                         {intl.formatMessage(this.messages.createButton)}

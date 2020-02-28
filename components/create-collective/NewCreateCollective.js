@@ -207,6 +207,7 @@ class NewCreateCollective extends Component {
         collective={this.state.collective}
         onSubmit={this.createCollective}
         onChange={this.handleChange}
+        loading={this.state.status === 'loading'}
         error={error}
         query={query}
       />
