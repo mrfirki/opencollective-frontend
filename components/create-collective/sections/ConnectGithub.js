@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Flex, Box } from '@rebass/grid';
 import { URLSearchParams } from 'universal-url';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
+import themeGet from '@styled-system/theme-get';
+import styled from 'styled-components';
 
 import StyledButton from '../../StyledButton';
 import StyledCheckbox from '../../StyledCheckbox';
@@ -20,6 +22,11 @@ import { Router } from '../../../server/pages';
 import { getGithubRepos } from '../../../lib/api';
 import { getWebsiteUrl } from '../../../lib/utils';
 import { LOCAL_STORAGE_KEYS, getFromLocalStorage } from '../../../lib/local-storage';
+
+const BackLink = styled(Link)`
+  color: ${themeGet('colors.black.600')};
+  font-size: ${themeGet('fontSizes.Paragraph')}px;
+`;
 
 class ConnectGithub extends React.Component {
   static propTypes = {
@@ -125,14 +132,12 @@ class ConnectGithub extends React.Component {
           <Fragment>
             <Flex flexDirection="column" my={[2, 4]}>
               <Box textAlign="left" minHeight={['32px']} marginLeft={['none', '224px']}>
-                <Link
-                  fontSize="Paragraph"
-                  color="black.600"
+                <BackLink
                   route="new-create-collective"
                   params={{ hostCollectiveSlug: query.hostCollectiveSlug, verb: query.verb, category: 'opensource' }}
                 >
                   ←&nbsp;{intl.formatMessage(this.messages.back)}
-                </Link>
+                </BackLink>
               </Box>
               <Box mb={[2, 3]}>
                 <H1
@@ -146,7 +151,7 @@ class ConnectGithub extends React.Component {
                 </H1>
               </Box>
               <Box textAlign="center" minHeight={['24px']}>
-                <P fontSize="Paragraph" color="black.600" mb={2}>
+                <P fontSize="LeadParagraph" color="black.600" mb={2}>
                   <FormattedMessage
                     id="collective.subtitle.seeRepo"
                     defaultMessage="Don't see the repository you're looking for? {helplink}."
@@ -162,7 +167,7 @@ class ConnectGithub extends React.Component {
                     }}
                   />
                 </P>
-                <P fontSize="Paragraph" color="black.600" mb={2}>
+                <P fontSize="LeadParagraph" color="black.600" mb={2}>
                   <FormattedMessage
                     id="collective.subtitle.altVerification"
                     defaultMessage="Want to apply using {altverification}? {applylink}."
@@ -232,14 +237,12 @@ class ConnectGithub extends React.Component {
           <Fragment>
             <Flex flexDirection="column" my={[2, 4]}>
               <Box textAlign="left" minHeight={['32px']} marginLeft={['none', '224px']}>
-                <Link
-                  fontSize="Paragraph"
-                  color="black.600"
+                <BackLink
                   route="new-create-collective"
                   params={{ hostCollectiveSlug: query.hostCollectiveSlug, verb: query.verb }}
                 >
                   ←&nbsp;{intl.formatMessage(this.messages.back)}
-                </Link>
+                </BackLink>
               </Box>
               <Box mb={[2, 3]}>
                 <H1
@@ -253,7 +256,7 @@ class ConnectGithub extends React.Component {
                 </H1>
               </Box>
               <Box textAlign="center" minHeight={['24px']}>
-                <P fontSize="Paragraph" color="black.600" mb={2}>
+                <P fontSize="LeadParagraph" color="black.600" mb={2}>
                   {intl.formatMessage(this.messages.openSourceSubtitle)}
                 </P>
               </Box>
@@ -324,6 +327,7 @@ class ConnectGithub extends React.Component {
                       />
                     }
                     required
+                    size="Caption"
                     checked={this.state.checked}
                     onChange={({ checked }) => {
                       this.handleChange('tos', checked);
@@ -337,7 +341,7 @@ class ConnectGithub extends React.Component {
                     mb={[3, 0]}
                     px={[2, 3]}
                     textAlign="center"
-                    buttonSize="medium"
+                    fontSize="13px"
                     height="36px"
                     width="196px"
                     buttonStyle="primary"
@@ -367,7 +371,7 @@ class ConnectGithub extends React.Component {
                   >
                     <StyledButton
                       textAlign="center"
-                      buttonSize="medium"
+                      fontSize="13px"
                       height="36px"
                       width="213px"
                       buttonStyle="secondary"

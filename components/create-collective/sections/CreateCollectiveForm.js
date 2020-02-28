@@ -4,6 +4,8 @@ import { Formik, Field, Form } from 'formik';
 import { Flex, Box } from '@rebass/grid';
 import { assign, get } from 'lodash';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
+import themeGet from '@styled-system/theme-get';
+import styled from 'styled-components';
 
 import { H1, P } from '../../Text';
 import Container from '../../Container';
@@ -16,6 +18,11 @@ import StyledButton from '../../StyledButton';
 import MessageBox from '../../MessageBox';
 import Link from '../../Link';
 import ExternalLink from '../../ExternalLink';
+
+const BackLink = styled(Link)`
+  color: ${themeGet('colors.black.600')};
+  font-size: ${themeGet('fontSizes.Paragraph')}px;
+`;
 
 class CreateCollectiveForm extends React.Component {
   static propTypes = {
@@ -114,14 +121,12 @@ class CreateCollectiveForm extends React.Component {
       <Flex flexDirection="column" m={[3, 4]}>
         <Flex flexDirection="column" my={[2, 4]}>
           <Box textAlign="left" minHeight={['32px']} width={[null, 832, 950, 1024]}>
-            <Link
-              fontSize="Paragraph"
-              color="black.600"
+            <BackLink
               route="new-create-collective"
               params={{ hostCollectiveSlug: query.hostCollectiveSlug, verb: query.verb }}
             >
               ←&nbsp;{intl.formatMessage(this.messages.back)}
-            </Link>
+            </BackLink>
           </Box>
           <Box mb={[2, 3]}>
             <H1
