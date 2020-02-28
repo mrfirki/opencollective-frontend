@@ -205,6 +205,7 @@ class NewCreateCollective extends Component {
       <CreateCollectiveForm
         host={host}
         collective={this.state.collective}
+        github={this.state.github}
         onSubmit={this.createCollective}
         onChange={this.handleChange}
         loading={this.state.status === 'loading'}

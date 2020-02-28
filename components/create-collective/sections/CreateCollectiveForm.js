@@ -82,7 +82,9 @@ class CreateCollectiveForm extends React.Component {
   }
 
   render() {
-    const { intl, error, query, host, loading } = this.props;
+    const { intl, error, query, host, loading, github } = this.props;
+
+    console.log(github);
 
     const initialValues = {
       name: '',
@@ -122,7 +124,7 @@ class CreateCollectiveForm extends React.Component {
     return (
       <Flex flexDirection="column" m={[3, 0]}>
         <Flex flexDirection="column" my={[2, 4]}>
-          <Box textAlign="left" minHeight={['32px']} width={[null, 832, 950, 1024]}>
+          <Box textAlign="left" minHeight={['32px']} marginLeft={['none', '224px']}>
             <BackLink
               route="new-create-collective"
               params={{ hostCollectiveSlug: query.hostCollectiveSlug, verb: query.verb }}
