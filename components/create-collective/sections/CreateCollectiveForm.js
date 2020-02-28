@@ -139,12 +139,19 @@ class CreateCollectiveForm extends React.Component {
       <Flex flexDirection="column" m={[3, 0]}>
         <Flex flexDirection="column" my={[2, 4]}>
           <Box textAlign="left" minHeight={['32px']} marginLeft={['none', '224px']}>
-            <BackLink
-              route="new-create-collective"
-              params={{ hostCollectiveSlug: query.hostCollectiveSlug, verb: query.verb }}
-            >
-              ←&nbsp;{intl.formatMessage(this.messages.back)}
-            </BackLink>
+            {query.verb === 'apply' && (
+              <BackLink route="collective" params={{ slug: query.hostCollectiveSlug }}>
+                ←&nbsp;{intl.formatMessage(this.messages.back)}
+              </BackLink>
+            )}
+            {query.verb === 'create' && (
+              <BackLink
+                route="new-create-collective"
+                params={{ hostCollectiveSlug: query.hostCollectiveSlug, verb: query.verb }}
+              >
+                ←&nbsp;{intl.formatMessage(this.messages.back)}
+              </BackLink>
+            )}
           </Box>
           <Box mb={[2, 3]}>
             <H1
