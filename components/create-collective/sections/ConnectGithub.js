@@ -127,7 +127,7 @@ class ConnectGithub extends React.Component {
       'https://docs.google.com/document/u/1/d/e/2PACX-1vQbiyK2Fe0jLdh4vb9BfHY4bJ1LCo4Qvy0jg9P29ZkiC8y_vKJ_1fNgIbV0p6UdvbcT8Ql1gVto8bf9/pub';
 
     return (
-      <Flex flexDirection="column" m={[3, 4]} mb={[4]}>
+      <Flex flexDirection="column" m={[3, 0]} mb={[4]}>
         {token && (
           <Fragment>
             <Flex flexDirection="column" my={[2, 4]}>

@@ -118,7 +118,7 @@ class CreateCollectiveForm extends React.Component {
     };
 
     return (
-      <Flex flexDirection="column" m={[3, 4]}>
+      <Flex flexDirection="column" m={[3, 0]}>
         <Flex flexDirection="column" my={[2, 4]}>
           <Box textAlign="left" minHeight={['32px']} width={[null, 832, 950, 1024]}>
             <BackLink

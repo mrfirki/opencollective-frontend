@@ -73,7 +73,7 @@ class CollectiveCategoryPicker extends React.Component {
 
     return (
       <div>
-        <Box my={4}>
+        <Box mb={4} mt={5}>
           <H1 fontSize={['H5', 'H3']} lineHeight={['H5', 'H3']} fontWeight="bold" color="black.900" textAlign="center">
             {intl.formatMessage(this.messages.header)}
           </H1>
