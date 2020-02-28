@@ -412,6 +412,7 @@
   "CP.Contributions.PartOfOrg": "{n, plural, one {Ce Collectif fait} other {Ces Collectifs font}} partie de notre Organisation",
   "CP.Contributions.SubCollective": "{n, plural, one {Ce Collectif fait} other {Ces Collectifs font}} partie de ce que nous faisons",
   "create-expense.title": "Submit expense",
+  "create.collective.placeholder": "Making the world a better place",
   "create.pledge.stats": "par {orgCount, plural, =0 {} one {# sponsor} other {# sponsors}} {both, plural, =0 {} one { and }} {userCount, plural, =0 {} one {# personne } other {# personnes }}",
   "createAccount.alreadyLoggedIn": "Il semble que vous soyez déjà connecté en tant que « {email} ». Pour créer un nouveau compte, veuillez d'abord vous déconnecter.",
   "createCollective.category.climate": "For climate initiatives",

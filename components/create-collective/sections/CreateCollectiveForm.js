@@ -26,7 +26,6 @@ const BackLink = styled(Link)`
 
 const placeholders = {
   name: 'Agora Collective',
-  description: 'Making the world a better place',
   slug: 'agora',
 };
 
@@ -75,6 +74,10 @@ class CreateCollectiveForm extends React.Component {
       createButton: {
         id: 'collective.create.button',
         defaultMessage: 'Create Collective',
+      },
+      descriptionPlaceholder: {
+        id: 'create.collective.placeholder',
+        defaultMessage: 'Making the world a better place',
       },
     });
   }
@@ -219,7 +222,13 @@ class CreateCollectiveForm extends React.Component {
                       required
                       my={4}
                     >
-                      {inputProps => <Field as={StyledInput} {...inputProps} placeholder={placeholders.description} />}
+                      {inputProps => (
+                        <Field
+                          as={StyledInput}
+                          {...inputProps}
+                          placeholder={intl.formatMessage(this.messages.descriptionPlaceholder)}
+                        />
+                      )}
                     </StyledInputField>
 
                     <Box mx={1} my={4}>
