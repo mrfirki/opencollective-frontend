@@ -96,8 +96,8 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
                         disabled: false,
                         repoInfo: {
                           type,
-                          handle: `${value.owner.login}/${value.name}`,
-                          repo: `${value.name}`,
+                          handle: `{value.owner.login}/{value.name}`,
+                          repo: value.name,
                         },
                       }));
                     } else {
@@ -106,8 +106,8 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
                         disabled: false,
                         repoInfo: {
                           type,
-                          handle: `${value.owner.login}`,
-                          repo: `${value.name}`,
+                          handle: value.owner.login,
+                          repo: value.name,
                         },
                       }));
                     }

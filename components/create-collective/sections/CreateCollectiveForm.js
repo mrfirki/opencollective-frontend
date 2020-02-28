@@ -40,6 +40,7 @@ class CreateCollectiveForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
+    this.githubRepoHelper = this.githubRepoHelper.bind(this);
 
     const collective = { ...props.collective }; // {}
 
@@ -74,7 +75,6 @@ class CreateCollectiveForm extends React.Component {
 
   handleChange(fieldname, value) {
     this.setState(state => ({
-      ...state,
       collective: {
         ...state.collective,
         [fieldname]: value,
@@ -82,13 +82,19 @@ class CreateCollectiveForm extends React.Component {
     }));
   }
 
+  githubRepoHelper(repoName) {
+    // replaces dash and underscore with space, then capitalises the words
+    const formattedName = repoName.replace(/[-_]/g, ' ').replace(/(?:^|\s)\S/g, words => words.toUpperCase());
+    return formattedName;
+  }
+
   render() {
     const { intl, error, query, host, loading, github } = this.props;
 
     const initialValues = {
-      name: github ? `${github.repo}`.replace(/[-_]/g, ' ') : '',
+      name: github ? this.githubRepoHelper(github.repo) : '',
       description: '',
-      slug: github ? `${github.repo}` : '',
+      slug: github ? github.repo : '',
     };
 
     const validate = values => {
