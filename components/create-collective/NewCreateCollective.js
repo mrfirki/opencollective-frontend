@@ -108,7 +108,7 @@ class NewCreateCollective extends Component {
       });
       return;
     }
-    if (this.props.host && !collective.hostTos) {
+    if (this.props.host && this.props.host.settings.tos && !collective.hostTos) {
       this.setState({
         error: 'Please accept the terms of fiscal sponsorship',
       });
@@ -154,7 +154,7 @@ class NewCreateCollective extends Component {
     if (host && !host.canApply) {
       return (
         <Flex flexDirection="column" alignItems="center" mb={5} p={2}>
-          <Flex flexDirection="column" p={4} mt={2}>
+          <Flex flexDirection="column" p={4} mt={3}>
             <Box mb={3}>
               <H1 fontSize="H3" lineHeight="H3" fontWeight="bold" textAlign="center">
                 <FormattedMessage id="home.create" defaultMessage="Create a Collective" />

@@ -173,12 +173,15 @@ class ConnectGithub extends React.Component {
                     defaultMessage="Want to apply using {altverification}? {applylink}."
                     values={{
                       applylink: (
-                        <ExternalLink
-                          href="https://docs.opencollective.com/help/collectives/osc-verification#applying-for-manual-verification"
-                          openInNewTab
+                        <Link
+                          route="new-create-collective"
+                          params={{
+                            hostCollectiveSlug: 'opensource',
+                            verb: 'apply',
+                          }}
                         >
                           <FormattedMessage id="clickHere" defaultMessage="Click here" />
-                        </ExternalLink>
+                        </Link>
                       ),
                       altverification: (
                         <ExternalLink href="https://www.oscollective.org/#criteria" openInNewTab>
@@ -363,10 +366,8 @@ class ConnectGithub extends React.Component {
                   <Link
                     route="new-create-collective"
                     params={{
-                      hostCollectiveSlug: query.hostCollectiveSlug,
-                      verb: query.verb,
-                      category: 'opensource',
-                      step: 'form',
+                      hostCollectiveSlug: 'opensource',
+                      verb: 'apply',
                     }}
                   >
                     <StyledButton

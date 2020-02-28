@@ -72,11 +72,13 @@ class CreateCollectiveForm extends React.Component {
   }
 
   handleChange(fieldname, value) {
-    const collective = {};
-
-    collective[fieldname] = value;
-
-    this.setState({ collective });
+    this.setState(state => ({
+      ...state,
+      collective: {
+        ...state.collective,
+        [fieldname]: value,
+      },
+    }));
   }
 
   render() {
