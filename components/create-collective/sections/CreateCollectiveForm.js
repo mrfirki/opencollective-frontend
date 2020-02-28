@@ -92,8 +92,8 @@ class CreateCollectiveForm extends React.Component {
         errors.slug = 'Please use fewer than 30 characters';
       }
 
-      if (values.description.length > 50) {
-        errors.description = 'Please use fewer than 30 characters';
+      if (values.description.length > 160) {
+        errors.description = 'Please use fewer than 160 characters';
       }
 
       return errors;

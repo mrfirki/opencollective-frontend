@@ -116,6 +116,9 @@ class ConnectGithub extends React.Component {
     const { token, intl, query } = this.props;
     const { repositories, loadingRepos, error } = this.state;
 
+    const FISCAL_SPONSOR_TERMS =
+      'https://docs.google.com/document/u/1/d/e/2PACX-1vQbiyK2Fe0jLdh4vb9BfHY4bJ1LCo4Qvy0jg9P29ZkiC8y_vKJ_1fNgIbV0p6UdvbcT8Ql1gVto8bf9/pub';
+
     return (
       <Flex flexDirection="column" m={[3, 4]} mb={[4]}>
         {token && (
@@ -313,7 +316,7 @@ class ConnectGithub extends React.Component {
                         defaultMessage="I agree with the {toslink}."
                         values={{
                           toslink: (
-                            <ExternalLink href="/tos" openInNewTab>
+                            <ExternalLink href={FISCAL_SPONSOR_TERMS} openInNewTab>
                               <FormattedMessage id="fiscaltos" defaultMessage="terms of fiscal sponsorship" />
                             </ExternalLink>
                           ),
