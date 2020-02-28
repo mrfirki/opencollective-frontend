@@ -170,7 +170,7 @@ class CreateCollectiveForm extends React.Component {
                       required
                       my={4}
                     >
-                      {inputProps => <Field as={StyledInput} {...inputProps} placeholder="Guinea Pigs United" />}
+                      {inputProps => <Field as={StyledInput} {...inputProps} placeholder="Agora Collective" />}
                     </StyledInputField>
                     <StyledInputField
                       name="slug"
@@ -182,12 +182,7 @@ class CreateCollectiveForm extends React.Component {
                       my={4}
                     >
                       {inputProps => (
-                        <Field
-                          as={StyledInputGroup}
-                          {...inputProps}
-                          prepend="opencollective.com"
-                          placeholder="guineapigs"
-                        />
+                        <Field as={StyledInputGroup} {...inputProps} prepend="opencollective.com" placeholder="agora" />
                       )}
                     </StyledInputField>
                     <StyledInputField
@@ -200,11 +195,7 @@ class CreateCollectiveForm extends React.Component {
                       my={4}
                     >
                       {inputProps => (
-                        <Field
-                          as={StyledInput}
-                          {...inputProps}
-                          placeholder="We advocate for tiny piggies everywhere!"
-                        />
+                        <Field as={StyledInput} {...inputProps} placeholder="Making the world a better place" />
                       )}
                     </StyledInputField>
 
