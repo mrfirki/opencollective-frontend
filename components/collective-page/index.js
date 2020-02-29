@@ -57,6 +57,7 @@ class CollectivePage extends Component {
       updates: PropTypes.number.isRequired,
       backers: PropTypes.object,
     }),
+    status: PropTypes.string.isRequired,
   };
 
   constructor(props) {
@@ -126,7 +127,7 @@ class CollectivePage extends Component {
     }
   };
 
-  getCallsToAction = memoizeOne((type, isHost, isAdmin, isRoot, canApply, canContact, isArchived) => {
+  getCallsToAction = memoizeOne((type, isHost, isAdmin, isRoot, canApply, canContact, isArchived, status) => {
     const isCollective = type === CollectiveType.COLLECTIVE;
     const isEvent = type === CollectiveType.EVENT;
     return {
@@ -136,6 +137,7 @@ class CollectivePage extends Component {
       hasDashboard: isHost && isAdmin,
       hasManageSubscriptions: isAdmin && !isCollective && !isEvent,
       addFunds: isRoot && type === CollectiveType.ORGANIZATION,
+      hasMoveBalance: isAdmin && Boolean(status === 'eventConcludedWithBalance'),
     };
   });
 
@@ -218,7 +220,7 @@ class CollectivePage extends Component {
   }
 
   render() {
-    const { collective, host, isAdmin, isRoot, onPrimaryColorChange } = this.props;
+    const { collective, host, isAdmin, isRoot, onPrimaryColorChange, status } = this.props;
     const { type, isHost, canApply, canContact } = collective;
     const { isFixed, selectedSection } = this.state;
     const sections = this.getSections(this.props);
@@ -230,6 +232,7 @@ class CollectivePage extends Component {
       canApply,
       canContact,
       collective.isArchived,
+      status,
     );
 
     return (

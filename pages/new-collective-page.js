@@ -16,6 +16,7 @@ import CollectivePage from '../components/collective-page';
 import CollectiveThemeProvider from '../components/CollectiveThemeProvider';
 import Container from '../components/Container';
 import { getCollectivePageQuery } from '../components/collective-page/graphql/queries';
+import { moneyCanMoveFromEvent } from '../lib/events';
 
 /** A page rendered when collective is pledged and not active yet */
 const PledgedCollectivePage = dynamic(
@@ -115,8 +116,16 @@ class NewCollectivePage extends React.Component {
     }
   }
 
+  getStatus(status, collective) {
+    if (Boolean(status)) {
+      return status;
+    }
+    return moneyCanMoveFromEvent(collective) ? 'eventConcludedWithBalance' : '';
+  }
+
   render() {
     const { slug, data, LoggedInUser, status } = this.props;
+    console.log(data);
 
     if (!data.loading) {
       if (!data || data.error) {
@@ -132,6 +141,7 @@ class NewCollectivePage extends React.Component {
     }
 
     const collective = data && data.Collective;
+    const confirmedStatus = this.getStatus(status, collective);
     return (
       <Page {...this.getPageMetaData(collective)} withoutGlobalStyles>
         <GlobalStyles smooth={this.state.smooth} />
@@ -141,7 +151,7 @@ class NewCollectivePage extends React.Component {
           </Container>
         ) : (
           <React.Fragment>
-            <CollectiveNotificationBar collective={collective} host={collective.host} status={status} />
+            <CollectiveNotificationBar collective={collective} host={collective.host} status={confirmedStatus} />
             <CollectiveThemeProvider collective={collective}>
               {({ onPrimaryColorChange }) => (
                 <CollectivePage
@@ -160,7 +170,7 @@ class NewCollectivePage extends React.Component {
                   LoggedInUser={LoggedInUser}
                   isAdmin={Boolean(LoggedInUser && LoggedInUser.canEditCollective(collective))}
                   isRoot={Boolean(LoggedInUser && LoggedInUser.isRoot())}
-                  status={status}
+                  status={confirmedStatus}
                   onPrimaryColorChange={onPrimaryColorChange}
                 />
               )}

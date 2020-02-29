@@ -47,6 +47,15 @@ const messages = defineMessages({
     id: 'collective.pending.description',
     defaultMessage: 'This collective is pending approval from the host ({host}).',
   },
+  'event.over.sendMoneyToParent.title': {
+    id: 'event.over.sendMoneyToParent.title',
+    defaultMessage: 'Event is over and still has a positive balance',
+  },
+  'event.over.sendMoneyToParent.description': {
+    id: 'event.over.sendMoneyToParent.description',
+    defaultMessage:
+      'If you still have expenses related to this event, please file them. Otherwise consider moving the money to your collective {collective}',
+  },
 });
 
 const getNotification = (intl, status, collective, host) => {
@@ -69,6 +78,11 @@ const getNotification = (intl, status, collective, host) => {
           description: host ? intl.formatMessage(messages.collectiveCreatedDescription, { host: host.name }) : '',
         };
     }
+  } else if (status === 'eventConcludedWithBalance') {
+    return {
+      title: intl.formatMessage(messages['event.over.sendMoneyToParent.title']),
+      description: intl.formatMessage(messages['event.over.sendMoneyToParent.description']),
+    };
   } else if (status === 'collectiveArchived' || collective.isArchived) {
     return {
       title: intl.formatMessage(messages.collectiveArchived, { name: collective.name }),

@@ -10,6 +10,7 @@ import StyledButton from './StyledButton';
 import StyledTooltip from './StyledTooltip';
 import Link from './Link';
 import _ApplyToHostBtn from './ApplyToHostBtn';
+import SendMoneyToCollectiveBtn from './SendMoneyToCollectiveBtn';
 
 // Dynamic imports
 const AddFundsModal = dynamic(() => import('./AddFundsModal'));
@@ -20,7 +21,15 @@ const AddFundsModal = dynamic(() => import('./AddFundsModal'));
 const CollectiveCallsToAction = ({
   collective,
   buttonsMinWidth,
-  callsToAction: { hasSubmitExpense, hasContact, hasApply, hasDashboard, hasManageSubscriptions, addFunds },
+  callsToAction: {
+    hasSubmitExpense,
+    hasContact,
+    hasApply,
+    hasDashboard,
+    hasManageSubscriptions,
+    addFunds,
+    hasMoveBalance,
+  },
   ...props
 }) => {
   const [hasAddFundsModal, showAddFundsModal] = React.useState(false);
@@ -41,6 +50,16 @@ const CollectiveCallsToAction = ({
             <FormattedMessage id="Contact" defaultMessage="Contact" />
           </StyledButton>
         </Link>
+      )}
+      {hasMoveBalance && (
+        <SendMoneyToCollectiveBtn
+          key="SendMoneyToCollectiveBtn"
+          fromCollective={collective}
+          toCollective={collective.parentCollective}
+          LoggedInUser={hasMoveBalance}
+          amount={collective.stats.balance}
+          currency={collective.currency}
+        />
       )}
       {hasSubmitExpense && (
         <Link route="createExpense" params={{ collectiveSlug: collective.slug }}>

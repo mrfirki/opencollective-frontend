@@ -20,6 +20,7 @@ import StyledRoundButton from './StyledRoundButton';
 import CollectiveCallsToAction from './CollectiveCallsToAction';
 import hasFeature, { FEATURES } from '../lib/allowed-features';
 import LoadingPlaceholder from './LoadingPlaceholder';
+import SendMoneyToCollectiveBtn from './SendMoneyToCollectiveBtn';
 
 /** Main container for the entire component */
 const MainContainer = styled.div`
@@ -423,6 +424,18 @@ const CollectiveNavbar = ({
                 <MenuLink as={Link} route="createExpense" params={{ collectiveSlug: collective.slug }}>
                   <FormattedMessage id="menu.submitExpense" defaultMessage="Submit Expense" />
                 </MenuLink>
+              </MenuLinkContainer>
+            )}
+            {callsToAction.hasMoveBalance && (
+              <MenuLinkContainer mobileOnly>
+                <SendMoneyToCollectiveBtn
+                  key="SendMoneyToCollectiveBtn"
+                  fromCollective={collective}
+                  toCollective={collective.parentCollective}
+                  LoggedInUser={callsToAction.hasMoveBalance}
+                  amount={collective.stats.balance}
+                  currency={collective.currency}
+                />
               </MenuLinkContainer>
             )}
             {callsToAction.hasContact && (
