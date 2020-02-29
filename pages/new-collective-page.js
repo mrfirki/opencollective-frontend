@@ -117,7 +117,7 @@ class NewCollectivePage extends React.Component {
   }
 
   getStatus(status, collective) {
-    if (Boolean(status)) {
+    if (status) {
       return status;
     }
     return moneyCanMoveFromEvent(collective) ? 'eventConcludedWithBalance' : '';
