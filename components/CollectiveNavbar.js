@@ -478,6 +478,11 @@ CollectiveNavbar.propTypes = {
     canApply: PropTypes.bool,
     host: PropTypes.object,
     plan: PropTypes.object,
+    parentCollective: PropTypes.object,
+    stats: PropTypes.shape({
+      balance: PropTypes.number,
+    }),
+    currency: PropTypes.string,
   }),
   /** Defines the calls to action displayed next to the NavBar items. Match PropTypes of `CollectiveCallsToAction` */
   callsToAction: PropTypes.shape({
@@ -486,6 +491,7 @@ CollectiveNavbar.propTypes = {
     hasApply: PropTypes.bool,
     hasDashboard: PropTypes.bool,
     hasManageSubscriptions: PropTypes.bool,
+    hasMoveBalance: PropTypes.bool,
   }),
   /** Used to check what sections can be used */
   isAdmin: PropTypes.bool,

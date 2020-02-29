@@ -124,6 +124,11 @@ CollectiveCallsToAction.propTypes = {
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     plan: PropTypes.object,
+    parentCollective: PropTypes.object,
+    stats: PropTypes.shape({
+      balance: PropTypes.number,
+    }),
+    currency: PropTypes.string,
   }),
   callsToAction: PropTypes.shape({
     /** Button to contact the collective */
@@ -138,6 +143,8 @@ CollectiveCallsToAction.propTypes = {
     hasManageSubscriptions: PropTypes.bool,
     /** Link to add funds */
     addFunds: PropTypes.bool,
+    /** Button to move balance to parent */
+    hasMoveBalance: PropTypes.bool,
   }).isRequired,
   /** Will apply a min-width to all buttons */
   buttonsMinWidth: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
